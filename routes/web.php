@@ -4,7 +4,7 @@ use App\Http\Controllers\admin\BukuController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\IdentitasController;
 use App\Http\Controllers\admin\KategoriController;
-use App\Http\Controllers\admin\LaporanKontroller;
+use App\Http\Controllers\admin\LaporanController;
 use App\Http\Controllers\admin\PeminjamanController as AdminPeminjamanController;
 use App\Http\Controllers\admin\PenerbitController;
 use App\Http\Controllers\admin\UserController;
@@ -100,9 +100,9 @@ Route::prefix('user')->middleware(['auth' , 'role:user'])->group(function () {
     Route::post('/pesan/kirim', [PesanController::class, 'kirimPesanAdmin'])->name('admin.pesan.kirim');
     Route::post('/pesan/masuk/Ubah_status' , [PesanController::class , 'updateStatusAdmin'])->name('admin.pesan.masuk.update');
     //laporan
-    Route::get('/laporan', [LaporanKontroller::class, 'index'])->name('admin.laporan');
-    Route::post('/laporan/tanggal_peminjaman/cetak', [LaporanKontroller::class, 'cetakPeminjaman'])->name('admin.cetak.peminjaman');
-    Route::post('/laporan/tanggal_pengembalian/cetak', [LaporanKontroller::class, 'cetakPengembalian'])->name('admin.cetak.pengembalian');
-    Route::post('/laporan/anggota/cetak', [LaporanKontroller::class, 'cetakPeranggota'])->name('admin.cetak.anggota');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
+    Route::post('/laporan/tanggal_peminjaman/cetak', [LaporanController::class, 'cetakPeminjaman'])->name('admin.cetak.peminjaman');
+    Route::post('/laporan/tanggal_pengembalian/cetak', [LaporanController::class, 'cetakPengembalian'])->name('admin.cetak.pengembalian');
+    Route::post('/laporan/anggota/cetak', [LaporanController::class, 'cetakPeranggota'])->name('admin.cetak.anggota');
 
 });
