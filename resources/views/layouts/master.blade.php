@@ -27,9 +27,13 @@
 
   @php
   use App\Models\Pesan;
+  use App\Models\User;
   $pesan = Pesan::where('penerima_id', Auth::user()->id)
       ->where('status', 'terkirim')
       ->get();
+  foreach ($pesan as $p) {
+    $p->username = User::find($p->pengirim_id);
+  }
 @endphp
 
 @php
@@ -184,7 +188,7 @@ $pemberitahuan = Pemberitahuan::all();
                             </div>
                             <div class="col ms-2">
                                 <p class="mb-0 font-bold">
-                                    {{ $p->pengirim->username }}</p>
+                                    {{ $p->username }}</p>
                                 <p class="mt-0 mb-0 font-thin text-sm">
                                     {{ $p->isi }}</p>
                             </div>

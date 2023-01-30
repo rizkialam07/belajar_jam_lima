@@ -54,7 +54,7 @@ Route::prefix('user')->middleware(['auth' , 'role:user'])->group(function () {
     Route::get('/pesan/masuk' , [PesanController::class, 'indexMasuk'])->name('user.pesan.masuk');
     Route::get('/pesan/terkirim' , [PesanController::class , 'indexTerkirim'])->name('user.pesan.terkirim');
     Route::post('/pesan/masuk/ubah_status', [PesanController::class , 'updateStatus'])->name('user.pesan.masuk.update');
-    Route::post('/pesan/kirim' , [PesanController::class, 'kirimPesan'])->name('user.pesan.kirim');
+    Route::post('/pesan/kirim' , [PesanController::class, 'kirimPesan'])->name('user.kirim_pesan');
     Route::delete('/pesan/delete/{id}' , [PesanController::class, 'destroyPesan'])->name('user.pesan.delete');
     //profile
     Route::get('/profile' , [ProfileController::class, 'index'])->name('user.profile');

@@ -40,7 +40,7 @@
                                 <label>Penerima</label>
                                 <select class="form-select" name="penerima_id" required>
                                     <option value="" disabled selected>--PILIH OPSI--</option>
-                                    @foreach ($penerimas as $b)
+                                    @foreach ($penerima as $b)
                                         <option value="{{ $b->id }}">
                                             {{ $b->fullname }}</option>
                                     @endforeach
@@ -87,7 +87,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pesan as $key => $p)
+                @foreach ($pesanTerkirim as $key => $p)
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $p->penerima->fullname }}</td>

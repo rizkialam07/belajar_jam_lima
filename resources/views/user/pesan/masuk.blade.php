@@ -27,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($masuk as $key => $m)
+                        @foreach ($pesanMasuk as $key => $m)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $m->pengirim->fullname }}</td>

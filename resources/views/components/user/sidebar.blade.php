@@ -54,7 +54,7 @@
             <li class="submenu-item  {{ request()->is('user/pesan/masuk*') ? 'active' : ' ' }} ">
                 <a href="{{ route('user.pesan.masuk') }}">Pesan masuk
                     <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">
-                        {{ count($pesan) }}
+                        {{-- {{ count($pesan) }} --}}
                </span>
                 </a>
             </li>

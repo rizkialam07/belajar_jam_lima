@@ -106,8 +106,8 @@ class FirstSeeder extends Seeder
         peminjaman::create([
             'user_id' => '1',
             'buku_id' => '1',
-            'tgl_peminjaman' => '2023-01-23',
-            // 'tgl_pengembalian' => '',
+            'tanggal_peminjaman' => '2023-01-23',
+            // 'tanggal_pengembalian' => '',
             'kondisi_buku_saat_dipinjam' => 'baik',
             // 'kondisi_buku_saat_dikembalikan' => '',
             // 'denda' => '',
@@ -116,8 +116,8 @@ class FirstSeeder extends Seeder
         peminjaman::create([
             'user_id' => '2',
             'buku_id' => '2',
-            'tgl_peminjaman' => '2023-01-23',
-            // 'tgl_pengembalian' => '',
+            'tanggal_peminjaman' => '2023-01-23',
+            // 'tanggal_pengembalian' => '',
             'kondisi_buku_saat_dipinjam' => 'rusak',
             // 'kondisi_buku_saat_dikembalikan' => '',
             'denda' => '20000',
