@@ -36,6 +36,12 @@
                     </div>
                  </div>
 
+                 <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Tanggal Kirim</label>
+                    <input type="date" class="form-control" id="formGroupExampleInput"
+                        placeholder="Nama Siswa" name="tgl_kirim" readonly value="{{ date('Y-m-d') }}">
+                </div>
+
 
                 </div>
                 <div class="modal-footer">

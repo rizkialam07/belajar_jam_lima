@@ -9,7 +9,7 @@ class pesan extends Model
 {
     use HasFactory;
 
-    protected $fillbable =[
+    protected $fillable =[
         'penerima_id',
         'pengirim_id',
         'judul',
