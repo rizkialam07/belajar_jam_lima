@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\peminjaman;
 use App\Models\User;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -31,7 +31,7 @@ class LaporanController extends Controller
     //     $data = Peminjaman::where('tanggal_peminjaman' , $request->tanggal_peminjaman)->get();
 
 
-    //             $pdf = pdf::loadview('admin.laporan.laporan_peminjaman', ['data' => $data]);
+    //             $pdf = PDF::loadview('admin.laporan.laporan_peminjaman', ['data' => $data]);
     //             return $pdf->download('laporan-perpus.pdf');
 
     // }
@@ -40,7 +40,7 @@ class LaporanController extends Controller
     // public function cetakPengembalian(Request $request)
     // {
     //     $data = peminjaman::where('tanggal_pengembalian', $request->tanggal_pengembalian)->get();
-    //     $pdf = Pdf::loadview('admin.laporan.laporan_pengembalian', ['data' => $data]);
+    //     $pdf = PDF::loadview('admin.laporan.laporan_pengembalian', ['data' => $data]);
     //     return $pdf->download('laporan-perpus.pdf');
 
     // }
@@ -49,7 +49,7 @@ class LaporanController extends Controller
     // {
     //     // $data = User::where('role' , 'user');
     //     $data = Peminjaman::where('user_id' , $request->user_id)->with('buku' , 'user')->get();
-    //     $pdf = Pdf::loadview('admin.laporan.laporan_peranggota', ['data' => $data]);
+    //     $pdf = PDF::loadview('admin.laporan.laporan_peranggota', ['data' => $data]);
     //     return $pdf->download('laporan-perpus.pdf');
     // }
 }

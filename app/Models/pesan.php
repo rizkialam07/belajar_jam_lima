@@ -18,7 +18,11 @@ class pesan extends Model
         'tgl_kirim',
     ];
 
-    public function users(){
-        return $this->belongsTo(User::class);
+    public function penerima(){
+        return $this->belongsTo(User::class, 'penerima_id');
+    }
+
+    public function pengirim(){
+        return $this->belongsTo(User::class, 'pengirim_id');
     }
 }

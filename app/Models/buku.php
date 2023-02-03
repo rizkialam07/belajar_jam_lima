@@ -14,7 +14,7 @@ class buku extends Model
         'kategori_id',
         'penerbit_id',
         'pengarang',
-        'tahun_penerbit',
+        'tahun_terbit',
         'isbn',
         'j_buku_baik',
         'j_buku_rusak',

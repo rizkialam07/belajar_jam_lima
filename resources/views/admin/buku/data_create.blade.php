@@ -46,7 +46,7 @@
 
              <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Tahun Terbit</label>
-                <input type="number" class="form-control" id="formGroupExampleInput" placeholder="" name="tahun_terbit" required >
+                <input type="date" class="form-control" id="formGroupExampleInput" placeholder="" name="tahun_terbit" required >
              </div>
 
              <div class="mb-3">

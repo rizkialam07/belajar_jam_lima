@@ -101,8 +101,8 @@ Route::prefix('user')->middleware(['auth' , 'role:user'])->group(function () {
     Route::post('/pesan/masuk/Ubah_status' , [PesanController::class , 'updateStatusAdmin'])->name('admin.pesan.masuk.update');
     //laporan
     Route::get('/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
-    Route::post('/laporan/tanggal_peminjaman/cetak', [LaporanController::class, 'cetakPeminjaman'])->name('admin.cetak.peminjaman');
-    Route::post('/laporan/tanggal_pengembalian/cetak', [LaporanController::class, 'cetakPengembalian'])->name('admin.cetak.pengembalian');
+    Route::post('/laporan/tanggal_peminjaman/cetak_pdf', [LaporanController::class, '_Peminjaman'])->name('admin.cetak.peminjaman');
+    Route::post('/laporan/tanggal_pengembalian/cetak_pdf', [LaporanController::class, 'c_etakPengembalian'])->name('admin.cetak.pengembalian');
     Route::post('/laporan/anggota/cetak', [LaporanController::class, 'cetakPeranggota'])->name('admin.cetak.anggota');
 
 });

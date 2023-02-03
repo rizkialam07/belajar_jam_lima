@@ -19,7 +19,7 @@ class CreateBukusTable extends Migration
             $table->foreignId('kategori_id',11)->constrained();
             $table->foreignId('penerbit_id',11)->constrained();
             $table->string('pengarang', 125);
-            $table->date('tahun_penerbit');
+            $table->date('tahun_terbit');
             $table->string('isbn',50)->nullable();
             $table->integer('j_buku_baik');
             $table->integer('j_buku_rusak');

@@ -42,6 +42,8 @@ class BukuController extends Controller
     public function storeBuku(Request $request)
     {
         $buku = Buku::all();
+
+        // dd($request->all());
         $buku = Buku::create($request->all());
 
         return redirect()->back();

@@ -18,7 +18,7 @@
                                 type="text"
                                 class="form-control"
                                 name="fullname"
-                                value="{{ Auth::user()->fullname }}"
+                                value="{{ Auth::user()->fullname }}" disabled
                               />
                             </div>
                             <div class="col-md-4">

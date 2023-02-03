@@ -85,7 +85,7 @@ class PesanController extends Controller
             'pengirim_id' => $request->pengirim_id,
             'judul' => $request->judul,
             'isi' => $request->isi,
-            'status' => 'terkirim',
+            'status' => '',
             'tanggal_kirim' => Carbon::now()
         ]);
 
@@ -125,7 +125,7 @@ class PesanController extends Controller
     {
         $status = Pesan::where('id' , $request->id)->first();
         $status->update([
-            'status' => 'terbaca'
+            'status' => 'dibaca'
         ]);
 
         return redirect()->back();
@@ -135,7 +135,7 @@ class PesanController extends Controller
     {
         $status = Pesan::where('id' , $request->id)->first();
         $status->update([
-            'status' => 'terbaca'
+            'status' => 'dibaca'
         ]);
 
         return redirect()->back();
