@@ -153,6 +153,6 @@ class PesanController extends Controller
         $pesanTerkirim = Pesan::find($id);
         $pesanTerkirim->delete();
 
-        return redirect()->back();
+        return redirect('pesan');
     }
 }

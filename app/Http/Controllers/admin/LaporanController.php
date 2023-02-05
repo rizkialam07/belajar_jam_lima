@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\AnggotaExport;
+use App\Exports\PeminjamanExport;
+use App\Exports\PengembalianExport;
 use App\Http\Controllers\Controller;
 use App\Models\peminjaman;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
+// use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+// use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LaporanController extends Controller
 {
@@ -26,30 +34,47 @@ class LaporanController extends Controller
     //     return $pdf->download('laporan-perpus.pdf');
     // }
 
-    // public function cetakPeminjaman(Request $request)
-    // {
-    //     $data = Peminjaman::where('tanggal_peminjaman' , $request->tanggal_peminjaman)->get();
+    public function cetakPeminjaman(Request $request)
+    {
+        $data = Peminjaman::where('tanggal_peminjaman' , $request->tanggal_peminjaman)->get();
 
 
-    //             $pdf = PDF::loadview('admin.laporan.laporan_peminjaman', ['data' => $data]);
-    //             return $pdf->download('laporan-perpus.pdf');
+                $pdf = FacadePdf::loadview('admin.laporan.laporan_peminjaman', ['data' => $data]);
+                return $pdf->download('laporan-perpus.pdf');
 
-    // }
+    }
 
 
-    // public function cetakPengembalian(Request $request)
-    // {
-    //     $data = peminjaman::where('tanggal_pengembalian', $request->tanggal_pengembalian)->get();
-    //     $pdf = PDF::loadview('admin.laporan.laporan_pengembalian', ['data' => $data]);
-    //     return $pdf->download('laporan-perpus.pdf');
+    public function cetakPengembalian(Request $request)
+    {
+        $data = peminjaman::where('tanggal_pengembalian', $request->tanggal_pengembalian)->get();
+        $pdf = FacadePdf::loadview('admin.laporan.laporan_pengembalian', ['data' => $data]);
+        return $pdf->download('laporan-perpus.pdf');
 
-    // }
+    }
 
-    // public function cetakPeranggota(Request $request)
-    // {
-    //     // $data = User::where('role' , 'user');
-    //     $data = Peminjaman::where('user_id' , $request->user_id)->with('buku' , 'user')->get();
-    //     $pdf = PDF::loadview('admin.laporan.laporan_peranggota', ['data' => $data]);
-    //     return $pdf->download('laporan-perpus.pdf');
-    // }
+    public function cetakPeranggota(Request $request)
+    {
+        // $data = User::where('role' , 'user');
+        $data = Peminjaman::where('user_id' , $request->user_id)->with('buku' , 'user')->get();
+        $pdf = FacadePdf::loadview('admin.laporan.laporan_peranggota', ['data' => $data]);
+        return $pdf->download('laporan-perpus.pdf');
+    }
+
+    //excel
+    public function exportPeminjamanExcel(Request $request)
+    {
+        // dd($request);
+        return Excel::download(new PeminjamanExport($request), 'laporan-perpus.xlsx');
+    }
+
+    public function exportPengembalianExcel(Request $request)
+    {
+        return Excel::download(new PengembalianExport($request), 'laporan-perpus.xlsx');
+    }
+
+    public function exportAnggotaExcel(Request $request)
+    {
+        return Excel::download(new AnggotaExport($request), 'laporan-perpus.xlsx');
+    }
 }

@@ -53,7 +53,7 @@ Route::prefix('user')->middleware(['auth' , 'role:user'])->group(function () {
     //pesan
     Route::get('/pesan/masuk' , [PesanController::class, 'indexMasuk'])->name('user.pesan.masuk');
     Route::get('/pesan/terkirim' , [PesanController::class , 'indexTerkirim'])->name('user.pesan.terkirim');
-    Route::post('/pesan/masuk/ubah_status', [PesanController::class , 'updateStatus'])->name('user.pesan.masuk.update');
+    Route::post('/pesan/masuk/Ubah_status', [PesanController::class , 'updateStatus'])->name('user.pesan.masuk.update');
     Route::post('/pesan/kirim' , [PesanController::class, 'kirimPesan'])->name('user.kirim_pesan');
     Route::delete('/pesan/delete/{id}' , [PesanController::class, 'destroyPesan'])->name('user.pesan.delete');
     //profile
@@ -101,8 +101,12 @@ Route::prefix('user')->middleware(['auth' , 'role:user'])->group(function () {
     Route::post('/pesan/masuk/Ubah_status' , [PesanController::class , 'updateStatusAdmin'])->name('admin.pesan.masuk.update');
     //laporan
     Route::get('/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
-    Route::post('/laporan/tanggal_peminjaman/cetak_pdf', [LaporanController::class, '_Peminjaman'])->name('admin.cetak.peminjaman');
-    Route::post('/laporan/tanggal_pengembalian/cetak_pdf', [LaporanController::class, 'c_etakPengembalian'])->name('admin.cetak.pengembalian');
+    Route::post('/laporan/tanggal_peminjaman/cetak_pdf', [LaporanController::class, 'cetakPeminjaman'])->name('admin.cetak.peminjaman');
+    Route::post('/laporan/tanggal_pengembalian/cetak_pdf', [LaporanController::class, 'cetakPengembalian'])->name('admin.cetak.pengembalian');
     Route::post('/laporan/anggota/cetak', [LaporanController::class, 'cetakPeranggota'])->name('admin.cetak.anggota');
+
+    Route::post('/laporan/excel/tanggal_peminjaman/cetak', [LaporanController::class, 'exportPeminjamanExcel'])->name('admin.cetak.peminjaman.excel');
+    Route::post('/laporan/excel/tanggal_pengenbalian/cetak', [LaporanController::class, 'exportPengembalianExcel'])->name('admin.cetak.pengembalian.excel');
+    Route::post('/laporan/excel/anggota/cetak', [LaporanController::class, 'exportAnggotaExcel'])->name('admin.cetak.anggota.excel');
 
 });
