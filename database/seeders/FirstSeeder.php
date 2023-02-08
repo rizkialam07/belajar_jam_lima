@@ -26,8 +26,8 @@ class FirstSeeder extends Seeder
         User::create([
             'kode' => 'A20',
             // 'nis' => '1234567',
-            'fullname' => 'Iqbal muflihsin',
-            'username' => 'iqbal',
+            'fullname' => 'alamsyah',
+            'username' => 'alam',
             'password' => Hash::make('12345'),
             // 'kelas' => 'Xll OTKP1',
             // 'alamat' => 'jalan budhi asi',
@@ -41,8 +41,8 @@ class FirstSeeder extends Seeder
         User::create([
             'kode' => 'B10',
             // 'nis' => '',
-            'fullname' => 'sabrina caroline',
-            'username' => 'karin',
+            'fullname' => 'aliando',
+            'username' => 'rizki',
             'password' => Hash::make('1989'),
             // 'kelas' => '12 AKL',
             // 'alamat' => 'jalan pucung',
